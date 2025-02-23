@@ -5,10 +5,10 @@ function getDatabaseConnection() {
     static $pdo = null;
 
     if ($pdo === null) {
-        $host = 'localhost';
-        $dbname = 'film_review_db';
-        $username = 'root';
-        $password = '';
+        $host = getenv('localhost');
+        $dbname = getenv('film_review_db');
+        $username = getenv('root');
+        $password = getenv('');
 
         try {
             $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password, [
